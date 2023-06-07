@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lkavalia <lkavalia@student.42wolfsburg.    +#+  +:+       +#+        */
+/*   By: lkavalia <lkavalia@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 18:54:46 by lkavalia          #+#    #+#             */
-/*   Updated: 2023/06/06 20:48:08 by lkavalia         ###   ########.fr       */
+/*   Updated: 2023/06/07 09:24:58 by lkavalia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ class	Array
 		//Canonical form	===========
 		Array(void): _elements(NULL), _size(0) {};
 		Array(unsigned int n): _elements(new T[n]), _size(n) {};
-		Array(const Array& other) {	*this = other;};
+		Array(const Array& other) {	this->_elements = NULL; *this = other;};
 		~Array(void) {	delete[] this->_elements;};
 
 		Array&	operator=(const Array& other)
 		{
-			if (this->_elements)
+			if (this->_elements != NULL)
 				delete[] this->_elements;
 			this->_elements = new	T[other.size()];
 			this->_size = other._size;
